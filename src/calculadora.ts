@@ -3,6 +3,8 @@ function operar(operacion: string, a: number, b: number) {
         return suma(a, b);
     } else if (operacion === 'resta') {
         return restar(a, b);
+    } else if (operacion === 'multiplicacion') {
+        return multiplicar (a, b);
     }
 }
 
@@ -33,4 +35,16 @@ function restar(a: number, b: number) {
     return a - b;
 }
 
-export { suma, operar, restar };
+function multiplicar(a: number, b: number) {
+    if (a === undefined || b === undefined) {
+        console.log("retornando throw")
+        throw new Error("No se puede multiplicar indefinidos");
+    }
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        return NaN;
+    }
+
+    return a + b;
+}
+export { suma, operar, restar, multiplicar };
